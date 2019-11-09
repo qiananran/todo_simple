@@ -21,7 +21,10 @@ export class TaskListPage {
   }
 
   addTask(){
-
+    let theNewTask : string = prompt("新任务");
+    if(theNewTask !== ''){
+      this.tasks.push({title:theNewTask,status:'open'});
+    }
   }
 
 }
