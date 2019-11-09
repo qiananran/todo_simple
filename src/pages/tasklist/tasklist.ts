@@ -27,4 +27,11 @@ export class TaskListPage {
     }
   }
 
+  markAsDone(task:any){
+
+  }
+  removeTask(task:any){
+
+  }
+
 }
