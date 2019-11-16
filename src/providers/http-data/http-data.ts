@@ -20,6 +20,7 @@ export class HttpDataProvider {
     console.log('获取Http数据服务加载');
   }
 
+
   //获取搜有的值
   /**
    * 获取待办事项的列表
@@ -28,6 +29,28 @@ export class HttpDataProvider {
   getTaskList():Observable<Task[]>{
     return this.http.get<Task[]>(`${this.baseUrl}/classes/ToDoList`,
     this.httpOptions).map(data => data["results"]);
+  }
+  /**
+   * 获取指定待办事项
+   * @param objectId 
+   * 待办事项
+   */
+
+  getTask(objectId:string):Observable<Task>{
+    return this.http.get<Task>(`${this.baseUrl}/classes/ToDoList/${objectId}`,
+    this.httpOptions);
+  }
+
+  /**
+   * 新增待办事项
+   * @param task 
+   * @returns 响应结果
+   */
+  addTask(task:Task):Observable<Task>{
+    let _task = {title:task.title,status:task.status
+      ,description:task.description}
+      return this.http.post<Task>(`${this.baseUrl}/classes/ToDoList/`,_task,
+    this.httpOptions)
   }
 
   /**

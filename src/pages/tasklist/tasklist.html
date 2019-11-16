@@ -23,7 +23,7 @@
   </ion-refresher>
  <ion-list>
    <ion-item-sliding #slidingItem *ngFor="let task of tasks">
-      <ion-item [ngClass]="{'task_done': task.status === 'done'}" >{{task.title}}</ion-item>
+      <ion-item [ngClass]="{'task_done': task.status === 'done'}" (click)="editTask(task)">{{task.title}}</ion-item>
       <ion-item-options side="right" (ionSwipe)="removeTask(slidingItem, task)">
         <button ion-button icon-only color="secondary" (click)="markAsDone(slidingItem, task)">
           <ion-icon name="checkmark"></ion-icon>

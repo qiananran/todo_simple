@@ -6,9 +6,9 @@
 -->
 <ion-header>
   <ion-navbar color = "primary">
-    <ion-title>InputTask</ion-title>
+    <ion-title>{{action}}待办事项</ion-title>
     <ion-buttons end>
-      <button ion-button icon-only>
+      <button ion-button icon-only (click)="close()">
         <ion-icon name="close"></ion-icon>
       </button>
     </ion-buttons>
@@ -16,5 +16,15 @@
 </ion-header>
 
 <ion-content padding>
-
+<ion-list>
+  <ion-item>
+    <ion-label floating>标题</ion-label>
+    <ion-input type="text" [(ngModel)]="title"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label floating>描述</ion-label>
+      <ion-input type="text" [(ngModel)]="description"></ion-input>
+  </ion-item>
+</ion-list>
+<button full ion-button color="primary" (click)="saveTask()">保存</button>
 </ion-content>

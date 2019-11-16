@@ -43,6 +43,20 @@ export class TaskListPage {
     });
     addModal.present();
   }
+  editTask(task:Task){
+    if (task.status === 'done')
+      return;
+    const index:number = this.tasks.indexOf(task);
+    let editModal = this.modalCtrl.create(InputTaskPage,{task:task});
+
+    editModal.onDidDismiss((task)=>{
+      if(task){
+          this.tasks[index] = task;
+      }
+    });
+    editModal.present();
+  }
+
   /**
    * 标记待办事项
    * @param slidingItem 
