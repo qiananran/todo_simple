@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController,  ItemSliding} from 'ionic-angular';
+import { NavController,  ItemSliding, ModalController} from 'ionic-angular';
 import { Task } from './task';
 import { HttpDataProvider } from '../../providers/http-data/http-data';
+import { InputTaskPage } from '../input-task/input-task';
 
 @Component({
   selector: 'page-tasklist',
@@ -10,8 +11,8 @@ import { HttpDataProvider } from '../../providers/http-data/http-data';
 export class TaskListPage {
   tasks : Task[] = [];
 
-  constructor(
-    public navCtrl: NavController,
+  constructor( public navCtrl: NavController,
+    public modalCtrl:ModalController,
     public httpData : HttpDataProvider) {
 
   }
@@ -33,6 +34,14 @@ export class TaskListPage {
     // if(theNewTask !== ''){
     //   this.tasks.push({title:theNewTask,status:'open'});
     // }
+    let addModal = this.modalCtrl.create(InputTaskPage);
+
+    addModal.onDidDismiss((task:Task)=>{
+      if(task){
+        this.tasks.push(task);
+      }
+    });
+    addModal.present();
   }
   /**
    * 标记待办事项

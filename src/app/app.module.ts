@@ -8,11 +8,13 @@ import { MyApp } from './app.component';
 import { TaskListPage } from '../pages/tasklist/tasklist';
 import { HttpDataProvider } from '../providers/http-data/http-data';
 import { HttpClientModule } from '@angular/common/http';
+import { InputTaskPage } from '../pages/input-task/input-task';
 
 @NgModule({
   declarations: [
     MyApp,
-    TaskListPage
+    TaskListPage,
+    InputTaskPage
   ],
   imports: [
     BrowserModule,
@@ -22,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    TaskListPage
+    TaskListPage,
+    InputTaskPage
   ],
   providers: [
     StatusBar,
