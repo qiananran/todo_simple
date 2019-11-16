@@ -6,6 +6,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { TaskListPage } from '../pages/tasklist/tasklist';
+import { HttpDataProvider } from '../providers/http-data/http-data';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,6 +16,7 @@ import { TaskListPage } from '../pages/tasklist/tasklist';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -24,7 +27,9 @@ import { TaskListPage } from '../pages/tasklist/tasklist';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    HttpDataProvider,
+    HttpDataProvider
   ]
 })
 export class AppModule {}

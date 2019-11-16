@@ -1,0 +1,21 @@
+POST http://api2.bmob.cn/1/classes/ToDoList http/1.1
+X-Bmob-Application-Id: e2b10545f275457159b5bacdfd3b3d21
+X-Bmob-REST-API-Key: a00e1be264573b45b05814de5e287eba
+Content-Type: application/json"
+
+{
+    "title" : "测试数据",
+    "status" : "open",
+    "description" : "详细描述"
+}
+
+GET http://api2.bmob.cn/1/classes/ToDoList http/1.1
+X-Bmob-Application-Id: e2b10545f275457159b5bacdfd3b3d21
+X-Bmob-REST-API-Key: a00e1be264573b45b05814de5e287eba
+Content-Type: application/json"
+
+
+GET http://api2.bmob.cn/1/classes/ToDoList/0fff4c4f9f http/1.1
+X-Bmob-Application-Id: e2b10545f275457159b5bacdfd3b3d21
+X-Bmob-REST-API-Key: a00e1be264573b45b05814de5e287eba
+Content-Type: application/json"
